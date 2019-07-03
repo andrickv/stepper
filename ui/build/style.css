@@ -1,0 +1,402 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    user-select: none;
+}
+html body {
+    overflow-x: hidden;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+header {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background-color: cadetblue;
+    width: 100vw;
+    padding: 1rem;
+}
+@media only screen and (max-width: 900px) {
+    header {
+        font-size: 2rem;
+   }
+}
+.title {
+    display: block;
+    color: white;
+    text-align: center;
+}
+.card {
+    display: flex;
+    width: 40vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 900px) {
+    .card {
+        width: 95vw;
+   }
+}
+.speed-panel {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.speed-panel > * {
+    margin: 1rem;
+}
+@media only screen and (max-width: 900px) {
+    .speed-panel > * {
+        margin: 1rem 0rem;
+   }
+}
+.turns-viewer {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+.speed-viewer {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+.widget {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    text-align: center;
+    line-height: 64px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: white;
+}
+.blue {
+    background-color: rgb(48, 86, 192);
+}
+.green {
+    background-color: rgb(155, 207, 76);
+}
+@media only screen and (max-width: 900px) {
+    .speed-viewer {
+        font-size: 1.4rem;
+        font-weight: 800;
+   }
+}
+.mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:1em;
+}
+/* Switch starts here */
+.rocker {
+    display: inline-block;
+    position: relative;
+   /* SIZE OF SWITCH ============== All sizes are in em - therefore changing the font-size here will change the size of the switch. See .rocker-small below as example. */
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888;
+    width: 7em;
+    height: 4em;
+    overflow: hidden;
+    border-bottom: 0.5em solid #eee;
+}
+.rocker-small {
+    font-size: 0.75em;
+   /* Sizes the switch */
+    margin: 1em;
+}
+.rocker::before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #999;
+    border: 0.5em solid #eee;
+    border-bottom: 0;
+}
+.rocker input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.switch-left, .switch-right {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    width: 3em;
+    transition: 0.2s;
+}
+.switch-left {
+    height: 2.4em;
+    width: 2.75em;
+    left: 0.85em;
+    bottom: 0.4em;
+    background-color: #ddd;
+    transform: rotate(15deg) skewX(15deg);
+}
+.switch-right {
+    right: 0.5em;
+    bottom: 0;
+    background-color: #bd5757;
+    color: #fff;
+}
+.switch-left::before, .switch-right::before {
+    content: "";
+    position: absolute;
+    width: 0.4em;
+    height: 2.45em;
+    bottom: -0.45em;
+    background-color: #ccc;
+    transform: skewY(-65deg);
+}
+.switch-left::before {
+    left: -0.4em;
+}
+.switch-right::before {
+    right: -0.375em;
+    background-color: transparent;
+    transform: skewY(65deg);
+}
+input:checked + .switch-left {
+    background-color: #0084d0;
+    color: #fff;
+    bottom: 0px;
+    left: 0.5em;
+    height: 2.5em;
+    width: 3em;
+    transform: rotate(0deg) skewX(0deg);
+}
+input:checked + .switch-left::before {
+    background-color: transparent;
+    width: 3.0833em;
+}
+input:checked + .switch-left + .switch-right {
+    background-color: #ddd;
+    color: #888;
+    bottom: 0.4em;
+    right: 0.8em;
+    height: 2.4em;
+    width: 2.75em;
+    transform: rotate(-15deg) skewX(-15deg);
+}
+input:checked + .switch-left + .switch-right::before {
+    background-color: #ccc;
+}
+/* Keyboard Users */
+input:focus + .switch-left {
+    color: #333;
+}
+input:checked:focus + .switch-left {
+    color: #fff;
+}
+input:focus + .switch-left + .switch-right {
+    color: #fff;
+}
+input:checked:focus + .switch-left + .switch-right {
+    color: #333;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #ac51b5;
+    border-radius: 25px;
+    border: 0px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 39px;
+    border-radius: 7px;
+    background: #65001c;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ac51b5;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #ac51b5;
+    border-radius: 25px;
+    border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 39px;
+    border-radius: 7px;
+    background: #65001c;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    border-width: 39px 0;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #ac51b5;
+    border: 0px solid #000101;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ac51b5;
+    border: 0px solid #000101;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 39px;
+    border-radius: 7px;
+    background: #65001c;
+    cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #ac51b5;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ac51b5;
+}
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.number-input {
+    border: 2px solid cadetblue;
+    display: inline-flex;
+}
+.number-input, .number-input * {
+    box-sizing: border-box;
+}
+.number-input button {
+    outline:none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+}
+.number-input button:before, .number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 1rem;
+    height: 2px;
+    background-color: #212121;
+    transform: translate(-50%, -50%);
+}
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.number-input .quantity {
+    font-family: sans-serif;
+    max-width: 10rem;
+    padding: .5rem 1rem;
+   /* border: solid #ddd;
+    */
+    border: 2px solid cadetblue;
+    border-width: 0 2px;
+    font-size: 1.2rem;
+    height: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+@media only screen and (max-width: 350px) {
+    .number-input .quantity{
+        padding: 0.5rem 0;
+   }
+}

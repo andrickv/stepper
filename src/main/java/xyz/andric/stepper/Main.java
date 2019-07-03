@@ -41,7 +41,7 @@ public class Main extends WebSocketServer {
     private long endTime;
     private int rpm = 0;
 
-    private Main(int port) {
+    public Main(int port) {
         super(new InetSocketAddress(port));
         conns = new HashSet<>();
 
@@ -170,14 +170,14 @@ public class Main extends WebSocketServer {
         }
     }
 
-    public static void main(String[] args) {
-        int port;
-        try {
-            port = Integer.parseInt(System.getenv("PORT"));
-        } catch (NumberFormatException nfe) {
-            port = 9000;
-        }
-        new Main(port).start();
-    }
+//    public static void main(String[] args) {
+//        int port;
+//        try {
+//            port = Integer.parseInt(System.getenv("PORT"));
+//        } catch (NumberFormatException nfe) {
+//            port = 9000;
+//        }
+//        new Main(port).start();
+//    }
 
 }
