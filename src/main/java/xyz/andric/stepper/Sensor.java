@@ -21,7 +21,7 @@ public class Sensor {
     private GpioPinDigitalInput sensor;
 
     public Sensor() {
-        sensor = gpio.provisionDigitalInputPin(RaspiPin.GPIO_27);
+        sensor = gpio.provisionDigitalInputPin(RaspiPin.GPIO_07);
     }
 
     /**
