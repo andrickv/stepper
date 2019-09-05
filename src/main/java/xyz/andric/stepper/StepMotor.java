@@ -23,7 +23,7 @@ public class StepMotor {
     private StepMotor() {
         gpio.setShutdownOptions(true, PinState.LOW, pins);
 
-        motor.setStepsPerRevolution(32);
+        motor.setStepsPerRevolution(48);
         // Bipolar motor
         single_step_sequence[0] = (byte) 0b0101;
         single_step_sequence[1] = (byte) 0b0110;

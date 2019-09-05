@@ -55,7 +55,7 @@ public class Main extends WebSocketServer {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
                 // display pin state on console
-                if (event.getState().isHigh() && startTime > 0) {
+                if (event.getState().isLow() && startTime > 0) {
                     endTime = System.currentTimeMillis();
                     rpm = Math.round(60000 / Math.toIntExact(endTime - startTime));
                     startTime = endTime;
@@ -170,14 +170,14 @@ public class Main extends WebSocketServer {
         }
     }
 
-//    public static void main(String[] args) {
-//        int port;
-//        try {
-//            port = Integer.parseInt(System.getenv("PORT"));
-//        } catch (NumberFormatException nfe) {
-//            port = 9000;
-//        }
-//        new Main(port).start();
-//    }
+    // public static void main(String[] args) {
+    // int port;
+    // try {
+    // port = Integer.parseInt(System.getenv("PORT"));
+    // } catch (NumberFormatException nfe) {
+    // port = 9000;
+    // }
+    // new Main(port).start();
+    // }
 
 }
